@@ -84,3 +84,6 @@ jest_coverage/
 
 # In-browser Soroban host build output (packages/sandbox-host/build.sh)
 frontend/public/sandbox-host/
+branch_structure.json
+temp_auto_push.bat
+temp_interactive_push.bat
