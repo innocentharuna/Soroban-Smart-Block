@@ -51,6 +51,11 @@ describe('abuseDetector middleware (issue #763)', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
+    // clearAllMocks keeps implementations, so a test that makes Redis
+    // unavailable would otherwise leak into every later test.
+    mockGetRedisClient.mockReset();
+    mockGetRedisClient.mockResolvedValue(mockRedisClient);
+    mockRedisClient.get.mockReset();
     mockRedisClient.get.mockResolvedValue(null);
     mockRedisClient.set.mockResolvedValue('OK');
     mockRedisClient.incr.mockResolvedValue(1);

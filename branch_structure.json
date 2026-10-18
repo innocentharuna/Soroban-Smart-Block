@@ -1,0 +1,30 @@
+{
+  "default_branch": "main",
+  "branches": [
+    "fix/ci-green-followup",
+    "fix/devcontainer-codespace-recovery-mode",
+    "fix/production-hardening-audit",
+    "fix/test-suite-cleanup",
+    "main",
+    "origin",
+    "solver/issue-973-56-a0"
+  ],
+  "parent": {
+    "fix/ci-green-followup": "main",
+    "fix/devcontainer-codespace-recovery-mode": "main",
+    "fix/production-hardening-audit": "main",
+    "fix/test-suite-cleanup": "main",
+    "main": null,
+    "origin": "main",
+    "solver/issue-973-56-a0": "main"
+  },
+  "order": [
+    "main",
+    "fix/ci-green-followup",
+    "fix/devcontainer-codespace-recovery-mode",
+    "fix/production-hardening-audit",
+    "fix/test-suite-cleanup",
+    "origin",
+    "solver/issue-973-56-a0"
+  ]
+}

@@ -46,6 +46,10 @@ describe('concurrentLimiter middleware (issue #763)', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
+    // clearAllMocks keeps implementations, so a test that makes Redis
+    // unavailable would otherwise leak into every later test.
+    mockGetRedisClient.mockReset();
+    mockGetRedisClient.mockResolvedValue(mockRedisClient);
     mockRedisClient.incr.mockReset();
     mockRedisClient.decr.mockReset();
     mockRedisClient.expire.mockReset();

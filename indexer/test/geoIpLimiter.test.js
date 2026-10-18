@@ -2,6 +2,9 @@ import { jest } from '@jest/globals';
 import request from 'supertest';
 import express from 'express';
 
+// NOTE: not part of `npm test`. The factory below imports the very module it
+// is mocking, which recurses until the heap is exhausted (the OOM in #973).
+// This file needs rewriting or deleting.
 const mockMaxmindReader = {
   get: jest.fn(),
 };

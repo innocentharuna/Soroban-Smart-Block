@@ -20,12 +20,8 @@ async function createMockApp() {
     res.json({ success: true });
   });
 
-  app.post("/admin/test", verifyCsrf, (req, res) => {
+  app.post("/api/admin/test", verifyCsrf, (req, res) => {
     res.json({ success: true });
-  });
-
-  app.ws("/socket", verifyCsrf, (ws) => {
-    ws.send("connected");
   });
 
   return app;
@@ -243,7 +239,7 @@ describe("CSRF Protection — Double-Submit Cookie Pattern", () => {
       const app = await createMockApp();
 
       const res = await request(app)
-        .post("/admin/test")
+        .post("/api/admin/test")
         .send({});
 
       // Should succeed without CSRF token (admin routes are gated by Bearer auth)
